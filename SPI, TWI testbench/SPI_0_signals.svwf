@@ -1,0 +1,105 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.IO_Addr[5:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.MSTR0}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.SPE0}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.SpiIRQ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.dbus_in[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.dbus_out[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.iore}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.iowe}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.irqack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.irqack_addr[5:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.miso_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.miso_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.mosi_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.mosi_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.out_en}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.reset_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.sck_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.sck_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.ss_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.ss_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SPIFClrSt_Current}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SPIFClrSt_Next}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SPIF_Next}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SpiIRQ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SpiIRQ_Ack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.SpiIRQ_Ack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.MstSMSt_Current[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.MstSMSt_Current_2[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_SPI0_CPOL0.uut.MstSMSt_Next[3:0]}]}
+	} ]]
+
+waveform xview limits 0 2000ns
